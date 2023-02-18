@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block columns %}
+
+<tr>
+  <th scope="col">#id</th>
+  <th scope="col">network</th>
+  <th scope="col">empty_slots</th>
+  <th scope="col">extra</th>
+  <th scope="col">free_bikes</th>
+  <th scope="col">latitude</th>
+  <th scope="col">longitude</th>
+  <th scope="col">name</th>
+  <th scope="col">timestamp</th>
+    
+</tr>
+
+  
+{% endblock columns %}
+
+
+{% block rows %}
+
+{% for station in stations %}
+<tr>
+    <th scope="row">{{ station.id }}</th>
+    <td>{{ station.network }}</td>
+    <td>{{ station.empty_slots }}</td>
+    <td>{{ station.extra }}</td>
+    <td>{{ station.free_bikes }}</td>
+    <td>{{ station.latitude }}</td>
+    <td>{{ station.longitude }}</td>
+    <td>{{ station.name }}</td>
+    <td>{{ station.timestamp }}</td>
+</tr>
+{% endfor %}
+  
+{% endblock rows %}

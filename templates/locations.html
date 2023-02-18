@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block columns %}
+
+<tr>
+  <th scope="col">#id</th>
+  <th scope="col">city</th>
+  <th scope="col">country</th>
+  <th scope="col">latitude</th>
+  <th scope="col">longitude</th>
+</tr>
+
+{% endblock columns %}
+
+
+{% block rows %}
+
+{% for location in locations %}
+<tr>
+    <th scope="row">{{ location.id }}</th>
+    <td>{{ location.city }}</td>
+    <td>{{ location.country }}</td>
+    <td>{{ location.latitude }}</td>
+    <td>{{ location.longitude }}</td>
+</tr>
+{% endfor %}
+  
+{% endblock rows %}

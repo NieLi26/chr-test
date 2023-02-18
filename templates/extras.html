@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block columns %}
+
+<tr>
+  <th scope="col">#id</th>
+  <th scope="col">uid</th>
+  <th scope="col">address</th>
+  <th scope="col">altitude</th>
+  <th scope="col">ebikes</th>
+  <th scope="col">has_ebikes</th>
+  <th scope="col">last_updated</th>
+  <th scope="col">normal_bikes</th>
+  <th scope="col">payments</th>
+  <th scope="col">payment_terminal</th>
+  <th scope="col">post_code</th>
+  <th scope="col">renting</th>
+  <th scope="col">returning</th>
+  <th scope="col">slots</th>
+</tr>
+
+{% endblock columns %}
+
+
+{% block rows %}
+
+{% for extra in extras %}
+<tr>
+    <th scope="row">{{ extra.id }}</th>
+    <td>{{ extra.uid }}</td>
+    <td>{{ extra.address }}</td>
+    <td>{{ extra.altitude }}</td>
+    <td>{{ extra.ebikes }}</td>
+    <td>{{ extra.has_ebikes }}</td>
+    <td>{{ extra.last_updated }}</td>
+    <td>{{ extra.normal_bikes }}</td>
+    <td>
+        {% for payment in extra.payments.all %}
+            {{ payment }}
+        {% endfor %}
+    </td>
+    <td>{{ extra.payment_terminal }}</td>
+    <td>{{ extra.post_code }}</td>
+    <td>{{ extra.renting }}</td>
+    <td>{{ extra.returning }}</td>
+    <td>{{ extra.slots }}</td>
+</tr>
+{% endfor %}
+  
+{% endblock rows %}

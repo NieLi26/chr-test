@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block columns %}
+
+<tr>
+  <th scope="col">#id</th>
+  <th scope="col">name</th>
+</tr>
+
+{% endblock columns %}
+
+
+{% block rows %}
+
+{% for payment in payments %}
+<tr>
+    <th scope="row">{{ payment.id }}</th>
+    <td>{{ payment.name }}</td>
+</tr>
+{% endfor %}
+  
+{% endblock rows %}

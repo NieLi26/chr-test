@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block columns %}
+
+<tr>
+  <th scope="col">#id</th>
+  <th scope="col">name</th>
+  <th scope="col">href</th>
+  <th scope="col">location</th>
+  <th scope="col">gbfs_href</th>
+</tr>
+
+{% endblock columns %}
+
+
+{% block rows %}
+
+{% for network in networks %}
+<tr>
+    <th scope="row">{{ network.id }}</th>
+    <td>{{ network.name }}</td>
+    <td>{{ network.href }}</td>
+    <td>{{ network.location }}</td>
+    <td>{{ network.gbfs_href }}</td>
+</tr>
+{% endfor %}
+  
+{% endblock rows %}

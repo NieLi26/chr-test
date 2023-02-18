@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block columns %}
+
+<tr>
+  <th scope="col">#id</th>
+  <th scope="col">numero</th>
+  <th scope="col">nombre</th>
+  <th scope="col">tipo</th>
+  <th scope="col">region</th>
+  <th scope="col">tipologia</th>
+  <th scope="col">titular</th>
+  <th scope="col">inversion</th>
+  <th scope="col">fecha_ingreso</th>
+  <th scope="col">estado</th>
+  <th scope="col">mapa</th>
+</tr>
+
+  
+{% endblock columns %}
+
+
+{% block rows %}
+
+{% for servicio in servicios %}
+<tr>
+    <th scope="row">{{ servicio.id }}</th>
+    <td>{{ servicio.numero }}</td>
+    <td>
+        <a href="{{ servicio.link }}" target="_blank">{{ servicio.nombre }}</a>
+    </td>
+    <td>{{ servicio.tipo }}</td>
+    <td>{{ servicio.region }}</td>
+    <td>{{ servicio.tipologia }}</td>
+    <td>{{ servicio.titular }}</td>
+    <td>{{ servicio.inversion }}</td>
+    <td>{{ servicio.fecha_ingreso }}</td>
+    <td>{{ servicio.estado }}</td>
+    <td>
+        {% if servicio.mapa %}
+            <a href="{{ servicio.mapa }}" target="_blank">link</a>
+        {% else %}
+        No existe
+        {% endif %}
+        
+    </td>
+</tr>
+{% endfor %}
+  
+{% endblock rows %}
