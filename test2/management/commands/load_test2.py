@@ -25,7 +25,7 @@ class Command(BaseCommand):
             table = soup.find('table', {'class': 'tabla_datos'})
 
             # Verificar si hay más páginas para consultar
-            if not table or page_number == 3:
+            if not table:
                 break
 
             # Encontrar todas las filas de la tabla, filtramos por el tipo de etiqueta
